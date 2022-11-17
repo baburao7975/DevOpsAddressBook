@@ -1,0 +1,51 @@
+pipeline{
+    tools{
+        jdk 'myjava'
+        maven 'mymaven'
+    }
+	agent any
+      stages{
+           stage('gitclone'){
+	    
+               steps{
+                 git 'https://github.com/baburao7975/DevOpsAddressBook.git'
+              }
+          }
+          stage('Compile'){
+             
+              steps{
+
+                  sh 'mvn compile'
+	      }
+          }
+          
+           stage('UnitTest'){
+		  
+              steps{
+                  sh 'mvn test'
+              }
+             
+           }	
+          
+          stage('Package'){
+		  
+              steps{
+		  
+                  sh 'mvn package'
+              }
+          }
+              stage('deploy'){
+		  
+              steps{
+		  sshagent(['tomcatid']) {
+		      
+            sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/pipelinecode/target/addressbook.war ubuntu@54.165.80.123:/opt/tomcat/webapps"
+
+                 }
+                  
+              }
+          }
+	     
+          
+      }
+}
