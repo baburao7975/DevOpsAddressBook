@@ -32,7 +32,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
                 sh 'docker login -u cbabu85 -p ${dockerHubPwd}'
                   }
-                sh 'docker push cbabu85/devopsaddressbook'
+                sh 'docker push baburao6580/devopsaddressbook'
                   }                                     
              }
          stage('Terraform init') {
