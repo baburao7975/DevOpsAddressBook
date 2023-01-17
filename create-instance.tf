@@ -1,8 +1,7 @@
 resource "aws_instance" "MyInstance" {
-  ami           = "ami-0f69bc5520884278e"
+  ami           = "ami-0b93ce03dcbcb10f6"
   instance_type = "t2.micro"
-  key_name      = "Mypemfile"
-  security_groups = ["sg-0ffb58db1648fe3a1"]
+  key_name      = "babukey"
   
   tags = {
     Name = "Terraform_Docker"
