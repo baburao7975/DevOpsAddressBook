@@ -2,6 +2,7 @@ pipeline {
     agent any
     
     tools {
+        jdk 'myjava'
         maven 'mymaven'
         terraform 'Terraform-0.14.7'
     }
