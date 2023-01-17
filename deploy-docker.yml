@@ -29,7 +29,7 @@
     - name: Start the container
       docker_container:
         name: project-app
-        image: "cbabu85/addressbook"
+        image: "baburao6580/devopsaddressbook"
         state: started
         published_ports:
           - 0.0.0.0:8090:8090
