@@ -27,9 +27,4 @@
       shell: usermod -a -G docker ubuntu
     
     - name: Start the container
-      docker_container:
-        name: project-app
-        image: "baburao6580/devopsaddressbook"
-        state: started
-        published_ports:
-          - 0.0.0.0:8090:8090
+      command: docker run -d --name web -P baburao6580/devopsaddressbook
