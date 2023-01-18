@@ -7,6 +7,7 @@
     <packaging>war</packaging>
     <version>2.0</version>
     <name>Vaadin Addressbook example</name>
+    <url>http://54.162.47.157:49153/addressbook/<url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -90,6 +91,10 @@
             <version>1.9.2</version>
             <type>jar</type>
         </dependency>
+	<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.14.0</version>
 		
 				<!-- LOGGING -->
 		<dependency>
