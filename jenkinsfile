@@ -7,8 +7,8 @@ pipeline {
         terraform 'Terraform-0.14.7'
     }
     environment {
-        AWS_ACCESS_KEY_ID = '${Access_Key}'
-        AWS_SECRET_KEY = '${Secret_Key}'
+        AWS_ACCESS_KEY_ID = 'AKIA4OVKFWLGEWN2G35T'
+        AWS_SECRET_KEY = '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'
         }
 
     stages {
