@@ -46,7 +46,7 @@ pipeline {
                  sleep 30
              }
          }
-      <!--
+      
       stage('Print Inventory') {
              steps {
              sh '''
@@ -61,8 +61,7 @@ pipeline {
              aws ec2 wait instance-status-ok --region us-east-1 --instance-ids `$(terraform output -json ec2_id_test) | awk -F'"' '{print $2}'`
              '''
              }
-             }
-               -->        
+             }    
         
         stage('Docker Deploy using Ansible') {
              steps {
