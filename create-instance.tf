@@ -1,9 +1,9 @@
 resource "aws_instance" "MyInstance" {
   ami           = "ami-06878d265978313ca"
-  instance_type = "t2.micro"
+  instance_type = "t2.small"
   key_name      = "newbabu"
   
   tags = {
-    Name = "Terraform_Docker"
+    Name = "Terra_Docker"
   }
 }
