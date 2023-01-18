@@ -46,22 +46,23 @@ pipeline {
                  sleep 30
              }
          }
-      #  stage('Print Inventory') {
-       #      steps {
-        #     sh '''
-         #       echo $(terraform output -json ec2_public_ip) | awk -F'"' '{print $2}' > aws_hosts
-          #      cat aws_hosts
-           #     '''
-            #    }
-         #}
-        #stage('Wait EC2') {
-         #    steps {
-          #   sh '''
-           #  aws ec2 wait instance-status-ok --region us-east-1 --instance-ids `$(terraform output -json ec2_id_test) | awk -F'"' '{print $2}'`
-            # '''
-             #}
-             #}
-        
+      <!--
+      stage('Print Inventory') {
+             steps {
+             sh '''
+                echo $(terraform output -json ec2_public_ip) | awk -F'"' '{print $2}' > aws_hosts
+                cat aws_hosts
+                '''
+                }
+         }
+        stage('Wait EC2') {
+             steps {
+             sh '''
+             aws ec2 wait instance-status-ok --region us-east-1 --instance-ids `$(terraform output -json ec2_id_test) | awk -F'"' '{print $2}'`
+             '''
+             }
+             }
+               -->        
         
         stage('Docker Deploy using Ansible') {
              steps {
