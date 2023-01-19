@@ -7,7 +7,7 @@
     <packaging>war</packaging>
     <version>2.0</version>
     <name>Vaadin Addressbook example</name>
-	<url>http://100.25.190.88:49153/addressbook/<url>
+	
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
