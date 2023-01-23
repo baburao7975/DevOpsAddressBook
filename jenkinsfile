@@ -53,5 +53,8 @@ pipeline {
                  ansiblePlaybook credentialsId: 'terraform-docker', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
              }
         }
+        stage('Email Notification'){
+        mail bcc: '', body: 'hii welcome', cc: '', from: '', replyTo: '', subject: 'jenkinsjob', to: 'raob26335@gmail.com'
+        }
      }
 }
