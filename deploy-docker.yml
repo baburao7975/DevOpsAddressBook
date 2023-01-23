@@ -27,4 +27,4 @@
       shell: usermod -a -G docker ubuntu
     
     - name: Start the container
-      command: docker run -d --name myweb -P baburao6580/devopsaddressbook
+      command: docker run -d --name newweb -P baburao6580/devopsaddressbook
