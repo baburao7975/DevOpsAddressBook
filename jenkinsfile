@@ -55,7 +55,7 @@ pipeline {
         }
         stage('Email Notification'){
         steps{
-        mail bcc: '', body: 'hii welcome', cc: '', from: '', replyTo: '', subject: 'jenkinsjob', to: 'raob26335@gmail.com'
+        emailext attachLog: true, body: 'email verify', subject: 'email sent from jenkins', to: 'raob26335@gmail.com'
         }
         }
      }
