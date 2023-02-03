@@ -4,11 +4,6 @@ pipeline {
     tools {
         jdk 'myjava'
         maven 'mymaven'
-        terraform 'Terraform-0.14.7'
-    }
-        environment {
-        AWS_ACCESS_KEY_ID = '${access_key}'
-        AWS_SECRET_KEY = '${secret_key}'
         }
         
 
@@ -23,40 +18,5 @@ pipeline {
             sh 'mvn clean package'
             }
         }  
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t baburao6580/devopsaddressbook .'
-            }
-        }
-        stage('Docker Push') {
-            steps { 
-                withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerHubPwd')]) {
-                sh 'docker login -u baburao6580 -p ${dockerHubPwd}'
-                  }
-                sh 'docker push baburao6580/devopsaddressbook'
-                  }                                     
-             }
-         stage('Terraform init') {
-             steps {
-                 sh 'terraform init'
-             }
-         }
-         stage('Terraform Apply') {
-             steps {
-                 sh 'terraform apply --auto-approve'
-                 sleep 30
-             }
-         }
-      
-           stage('Docker Deploy using Ansible') {
-             steps {
-                 ansiblePlaybook credentialsId: 'terraform-docker', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'deploy-docker.yml'
-             }
-        }
-        stage('Email Notification'){
-        steps{
-        emailext attachLog: true, body: 'email verify', subject: 'email sent from jenkins', to: 'raob26335@gmail.com'
         }
         }
-     }
-}
