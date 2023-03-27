@@ -5,7 +5,7 @@ tools{
       }
       agent any
       stages{
-      stage('git clone'){
+      stage('git clone from webhook'){
              steps{
                   git 'https://github.com/baburao7975/DevOpsAddressBook.git'
                   }
